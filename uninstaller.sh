@@ -2,22 +2,26 @@
 echo "Select a program to uninstall";
 echo "	- discover";
 echo "	- theharvester";
+echo " 	- sherlock"
 echo -n "Program Name: ";
 read program
 
 
+uninstall(){
+	echo "Uninstalling $1";
+	cd scripts
+	bash ./$1.remove.sh
+	echo "$1 has been removed";
+}
+
+
+
 case $program in
 	'discover')
-		clear
-		echo "Uninstalling discover"
-		cd scripts
-		bash ./discover.remove.sh
-		echo "discover is uninstalled";;
+		uninstall 'discover';;
 	'theharvester')
-		clear
-		echo "Uninstalling theHarvester"
-		cd scripts
-		bash ./theharvester.remove.sh
-		echo "theHarvester is uninstalled";;
+		uninstall 'theharvester';;
+	'sherlock')
+		uninstall 'sherlock';;
 	*) echo "Error: Not a valid program name" && exit;;
 esac

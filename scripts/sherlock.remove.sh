@@ -1,0 +1,1 @@
+sudo rm -rf $BUNTUSTALLER_APPS_PATH/sherlock
